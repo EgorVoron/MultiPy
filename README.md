@@ -1,5 +1,5 @@
 # MultiPy
-A python package for easy video processing with multithreading, based on concurrent packege.
+A python package for easy video processing with multithreading, based on concurrent package.
 
 ### Dependencies
 * Python3 >= 3.6
