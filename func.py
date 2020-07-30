@@ -23,7 +23,7 @@ def process_frames_batch(frames_batch, one_frame_func):
     return [one_frame_func(frame) for frame in frames_batch]
 
 
-def process(input_object, process_func, num_threads=4, subclip_bounds=()):
+def process_video(input_object, process_func, num_threads=4, subclip_bounds=()):
     video = handle_input(input_object, num_threads, subclip_bounds)
 
     futures = []
