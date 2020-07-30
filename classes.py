@@ -1,5 +1,6 @@
-import os
 from moviepy.editor import VideoFileClip
+
+import os
 
 
 class Wrapper:
