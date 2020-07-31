@@ -1,7 +1,6 @@
 from utils import handle_input, gen_fp
 
 import concurrent.futures
-
 from PIL import Image
 
 
