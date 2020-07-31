@@ -1,5 +1,7 @@
 from classes import VideoFileClipWrapper, ListWrapper, FileWrapper
 
+import os
+
 from moviepy.editor import VideoFileClip
 from numpy import ndarray
 
@@ -16,3 +18,12 @@ def handle_input(input_object, num_threads, subclip_bounds):
     else:
         raise ValueError('input_object is not moviepy.VideoFileClip or list or file path or numpy.ndarray')
     return video
+
+
+def gen_fp(output_path, number):
+    return os.path.join(output_path, number)
+
+
+def valid_file_path(path):
+    valid_extensions = ['.mp4', '.m4a']
+    return os.path.isfile(path) and os.path.getsize(path) > 0 and os.path.splitext(path)[1] in valid_extensions

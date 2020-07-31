@@ -1,6 +1,6 @@
-from moviepy.editor import VideoFileClip
+from utils import valid_file_path
 
-import os
+from moviepy.editor import VideoFileClip
 
 
 class Wrapper:
@@ -63,7 +63,7 @@ class ListWrapper(Wrapper):
 
 class FileWrapper(VideoFileClipWrapper):
     def __init__(self, path, num_threads, subclip_bounds=()):
-        if os.path.isfile(path):
+        if valid_file_path(path):
             super().__init__(VideoFileClip(path), subclip_bounds=subclip_bounds, num_threads=num_threads)
         else:
             raise ValueError(f'file path: {path} is not valid')
