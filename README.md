@@ -8,13 +8,13 @@ A python package for easy video processing with multithreading, based on concurr
 
 ### Example
 ```
-from multipy import process_video
+from multipy import map_video
 import cv2
 
 def resize(x):
     return cv2.resize(x, (256, 256))
 
-result = process_video('video.mp4',
+result = map_video('video.mp4',
                        resize,
                        num_threads=5, 
                        subclip_bounds=(1, 5))  # return list of resized frames from subclip of video
