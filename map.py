@@ -1,4 +1,4 @@
-from utils import handle_input
+from handle_input import handle_input
 
 import concurrent.futures
 
@@ -17,7 +17,7 @@ def map_video(input_object, process_func, num_threads=4, subclip_bounds=()):
             futures.append(executor.submit(process_frames_batch, frames_batch, process_func))
 
         last_batch = video.get_last_batch()
-        if list(last_batch):
+        if last_batch != None:
             futures.append(
                 executor.submit(process_frames_batch, video.get_last_batch(), process_func))
 

@@ -1,4 +1,4 @@
-from utils import handle_input
+from handle_input import handle_input
 from classes import VideoFileClipWrapper, FileWrapper
 
 import concurrent.futures
@@ -21,14 +21,14 @@ def filter_video(input_object, process_func, num_threads=4, subclip_bounds=()):
             futures.append(executor.submit(analyse_frames_batch, frames_batch, process_func, thread_num))
 
         last_batch = video.get_last_batch()
-        if list(last_batch):
+        if last_batch != None:
             futures.append(
                 executor.submit(analyse_frames_batch, video.get_last_batch(), process_func, num_threads - 1))
 
         result_list = []
         for result_batch in futures:
             for result_dict in result_batch.result():
-                if result_dict['result']:
+                if result_dict['result'] :
                     if isinstance(video, VideoFileClipWrapper) or isinstance(video, FileWrapper):
                         result_list.append(
                             (result_dict['thread_num'] * video.batch_len + result_dict['frame_idx']) / video.fps)
