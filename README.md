@@ -19,3 +19,9 @@ result = map_video('video.mp4',
                        num_threads=5, 
                        subclip_bounds=(1, 5))  # return list of resized frames from subclip of video
 ```
+
+```
+Includes functions:
+map_video - multithreaded map function, which applies input function to every frame in subclip bounds and returns list of updated frames
+filter_video - multithreaded filter function, which applies input function to every frame in subclip bounds and returns list of timecodes/frames' indexes, when input function returns True
+```
